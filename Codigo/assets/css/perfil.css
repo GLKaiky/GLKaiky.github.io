@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+:root {
+    --creme1: #f6e4cc;
+    --creme2: #eedec5;
+    --creme3: #fefcf0;
+    --creme4: #f8f4e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: var(--creme1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 800;
+}
+
+
+.navBar.navButtons {
+    background-color: var(--creme2);
+
+}
+
+.navButtons button {
+    margin-top: 0.2%;
+    font-size: 19px;
+    cursor: pointer;
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    z-index: 50;
+    transition: ease-out 0.4s;
+    box-shadow: inset 0 0 0 0 var(--creme3);
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+}
+
+.navButtons a {
+    background: transparent;
+    font-family: 'MedievalSharp', sans-serif;
+    text-decoration: none;
+    color: #000;
+    transition: ease-out 0.5s;
+}
+
+.navButtons button:hover,
+.navButtons a:hover {
+    box-shadow: inset 400px 0 0 0 var(--creme3);
+}
+
+.profile{
+    position: relative;
+}
+
+.profile img {
+    margin: 3% 1%;
+    width: 230px;
+    height: 230px;
+    cursor: pointer;
+}
+
+
+#lapis{
+    position: absolute;
+    top: 9.7%;
+    left: 6.4%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+    width: 50px;
+    height: 50px;
+    background:transparent;
+}
+
+#profile-class h1{
+    position: relative;
+    top: -37px;
+    left: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+#profile-class p{
+    position: relative;
+    top: -37px;
+    left: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+
+
+#perfil:hover + #lapis{
+    opacity: 1;
+}
+
+#lapis:hover{
+    opacity: 1;
+}
+
+#perfil:hover{
+    filter: blur(1px);
+}
+.personagens{
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    margin-right: 25px; 
+}
+
+.personagens p{
+    display: flex;
+}
+
+.personagens button{
+    background: transparent;
+    margin-left: 35%;
+}
+
+#carouselExample{
+    float: left;
+    
+}
+
+.carousel-item{
+    display: inline-block;
+    left: 0;
+}
+
+#carouselExample h1{
+    font-weight: bold;
+    font-family: 'MedievalSharp', sans-serif;
+}
+
+.carousel-item img{
+    width: 800px;
+    height: 500px;
+}
+
+
+
+
+@media screen and (max-width: 1330px) {
+
+    #lapis{
+        width: 30px;
+        height: 30px;
+        left: 3.8rem;
+    }
+
+    .navButtons button {
+        display: flex;
+        margin-top: 1%;
+    }
+
+    .carousel-item img{
+        width: 400px;
+        height: 250px;
+    }
+
+    .profile img {
+        margin-top: 5%;
+        width: 150px;
+        height: 150px;
+    }
+
+    #profile-class h1{
+        top: -5px;
+        left: 1;
+        display: inline-block;  
+        text-align: center;
+    }
+    
+    #profile-class p{
+        top: -5px;
+        left: 1;
+        display: inline-block;  
+        text-align: center;
+    }
+
+}   
