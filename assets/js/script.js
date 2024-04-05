@@ -40,16 +40,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-	uncheckAllExcept();
-
-	function uncheckAllExcept(clickedCheckboxId) {
-		var checkboxes = document.querySelectorAll('input[name="Tendencia"]');
-		checkboxes.forEach(function(checkbox) {
-		  if (checkbox.id !== clickedCheckboxId) {
-			checkbox.checked = false;
-		  }
-		});
-	  }
 
 });
 

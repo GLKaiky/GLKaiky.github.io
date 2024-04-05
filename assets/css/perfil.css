@@ -109,23 +109,6 @@ h6 {
 #perfil:hover{
     filter: blur(1px);
 }
-.personagens{
-    background-color: #fff;
-    position: fixed;
-    top: 0;
-    right: 0;
-    padding: 20px;
-    margin-right: 25px; 
-}
-
-.personagens p{
-    display: flex;
-}
-
-.personagens button{
-    background: transparent;
-    margin-left: 35%;
-}
 
 #carouselExample{
     float: left;
@@ -147,7 +130,53 @@ h6 {
     height: 500px;
 }
 
+.personagens{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 6%;
+    margin-right: 30px;
+}
 
+.personagens p, h1{
+    font-weight: bold;
+    font-family: 'MedievalSharp', sans-serif;
+    font-size: 25px;
+}
+
+
+.personagens button{
+    font-family: 'MedievalSharp', sans-serif;
+    font-weight: bold;
+    border-radius: 0.2rem;
+    font-size: 20px;
+    background-color: var(--creme2);
+    box-shadow: inset;
+}
+
+.personagens button:hover{
+    transition-duration: 0.3s;
+	cursor: pointer;
+	box-shadow: 0 1.5px 2px 0 #000030, 0 2px 6px 0 #000020;
+}
+
+.person{
+    margin-top: 35px;
+}
+
+.mesas{
+    position:absolute;
+    top: 0;
+    right: 0;
+    margin-top: 45%;
+    margin-right: 5%;
+}
+
+.mesas ul, .mesas li, .mesas p{
+    font-family: 'MedievalSharp', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
 
 
 @media screen and (max-width: 1330px) {
@@ -186,6 +215,17 @@ h6 {
         left: 1;
         display: inline-block;  
         text-align: center;
+    }
+    
+
+    .personagens{
+        position:relative;
+        margin: 0;
+    }
+
+    .mesas{
+        position: relative;
+        margin-top: -20px;
     }
 
 }   
