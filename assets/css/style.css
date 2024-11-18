@@ -255,7 +255,10 @@ section.module.paralax h2{
     
     section.module p{
         margin-bottom: 40px;
-    
+    }
+
+    section.module-text{
+        margin: 0 auto;
     }
 }
 
