@@ -29,6 +29,26 @@ main{
     display: block;
 }
 
+.linkedin {
+    position: fixed;
+    bottom: 20px; /* Distância do rodapé */
+    right: 20px; /* Distância da lateral direita */
+    z-index: 50;
+    cursor: pointer;
+}
+
+.linkedin img {
+    width: 70px; /* Ajuste conforme necessário */
+    height: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+}
+
+.linkedin img:hover {
+    transform: scale(1.2); /* Aumenta o tamanho em 20% */
+    filter: brightness(1.2); /* Deixa um pouco mais claro */
+}
+
 .container{
     width: 100%;
     max-width: 720px;
