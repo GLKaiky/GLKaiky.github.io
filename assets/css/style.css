@@ -1,285 +1,185 @@
-:root{
+:root {
     --black1: #252323;
     --creme1: #f6e4cc;
-    --creme2: #eedec5;
-    --creme3: #fefcf0;
-    --creme4: #f8f4e0;
+    --white: #fefcf0;
 }
 
-body{
-    margin:0;
+body {
+    margin: 0;
     padding: 0;
     font-family: sans-serif;
     background-color: var(--black1);
+    color: var(--white);
     word-wrap: break-word;
-    overflow-wrap:break-word;
+    overflow-wrap: break-word;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
 }
 
-.wrapper{
+/* --- ESTRUTURA E MÓDULOS --- */
+
+section.module {
     width: 100%;
-    margin: 0 auto;
-
+    position: relative;
+    padding-bottom: 10%;
 }
 
-main{
-    display: block;
+section.module.paralax {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* MUDANÇA: Usamos min-height para garantir que a seção possa crescer se o conteúdo precisar */
+    min-height: 80vh; 
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* EFEITO PARALLAX: Mantido para desktop */
+    background-attachment: fixed;
 }
 
+/* Overlay para melhorar legibilidade do texto sobre a imagem */
+section.module.paralax::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* Conteúdo sobreposto deve ter z-index maior */
+.hero-content, .project-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px; /* Limita a largura do conteúdo de texto */
+}
+
+/* --- HERO SECTION (PRIMEIRA SEÇÃO) --- */
+.paralax-1 {
+    min-height: 100vh; /* A primeira seção pode ocupar a tela toda */
+}
+
+.hero-content h1 {
+    /* MUDANÇA: Fonte responsiva com clamp(min, ideal, max) */
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin: 0;
+}
+
+.hero-content .subtitle {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    font-weight: 300;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* --- SEÇÃO SOBRE/PORTFÓLIO (FUNDO ESCURO) --- */
+.module-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 4rem 1rem;
+    background-color: var(--black1);
+}
+
+.module-text {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border-radius: 8px;
+    flex: 1 1 400px; /* Permite que os cards cresçam e encolham */
+    max-width: 600px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.module-text h2 {
+    margin-top: 0;
+    border-bottom: 2px solid var(--creme1);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.module-text p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+/* --- SEÇÕES DE PROJETOS --- */
+.project-section {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content h2 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    text-transform: uppercase;
+}
+
+.project-content p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    line-height: 1.5;
+}
+
+/* --- IMAGENS DE FUNDO --- */
+.paralax-1 { background-image: url(/assets/img/giphy.webp); }
+.paralax-2 { background-image: url(/assets/img/middleEarth.jpg); }
+.paralax-3 { background-image: url(/assets/img/cat.jpg); }
+.paralax-4 { background-image: url(/assets/img/logo-jumping.gif); }
+.paralax-5 {
+    /* Sua imagem de fundo, como você já definiu */
+    background-image: url(/assets/img/cat-spinning.gif);
+    background-size: 600px;
+
+    background-repeat: no-repeat;
+
+    background-position: center;
+
+}
+/* --- BOTÃO FLUTUANTE LINKEDIN --- */
 .linkedin {
     position: fixed;
-    bottom: 20px; /* Distância do rodapé */
-    right: 20px; /* Distância da lateral direita */
-    z-index: 50;
-    cursor: pointer;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
 }
 
 .linkedin img {
-    width: 70px; /* Ajuste conforme necessário */
+    width: 60px; /* Um pouco menor para mobile */
     height: auto;
-    transition: transform 0.3s ease, filter 0.3s ease;
-
+    transition: transform 0.3s ease;
 }
 
 .linkedin img:hover {
-    transform: scale(1.2); /* Aumenta o tamanho em 20% */
-    filter: brightness(1.2); /* Deixa um pouco mais claro */
-}
-
-.container{
-    width: 100%;
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 20px;
-    
-}
-
-.container p{
-    font-size: 20px;
-}
-
-section.module p{
-    margin-bottom: 40px;
-
-}
-
-section.module:last-child{
-    margin-bottom: 0;
-}
-
-section.module h2{
-    margin-bottom: 40px;
-    font-size: 30px;
-}
-
-section.module.content{
-    padding: 40px 0;
-    background-color: var(--creme2);
-} 
-
-section.module.paralax{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh !important;
-    width: 100%;
-    position: relative;
-    overflow: hidden;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    -webkit-background-size:cover;
-    -moz-backgroung-size:cover;
-    -o-background-size:cover;
-}
-
-section.module.paralax:after{
-    content: "";
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    z-index: 8;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 70%, #000 100%);
+    transform: scale(1.15);
 }
 
 
-section.module.paralax .col {
-    display: flex;
-    justify-content: center;
-}
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
 
-section.module.paralax button {
-    z-index: 50;
-    margin-left: 20px;
-    color: black;
-    border: 2px var(--creme2);
-    border-radius: 0px;
-    padding: 18px 36px;
-    display: inline-block;
-    font-family: "Lucida Console", Monaco, monospace;
-    font-size: 14px;
-    letter-spacing: 1px;
-    cursor: pointer;
-    box-shadow: inset 0 0 0 0 var(--creme1);
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
-}
+/* Para tablets e celulares (telas menores que 768px) */
+@media (max-width: 768px) {
 
-section.module.paralax button:hover {
-    box-shadow: inset 400px 0 0 0 var(--creme2);
-}   
-
-section.module-text{
-    margin-left: 55px;
-    max-width: 700px;
-    color: #fff;
-    overflow: hidden;
-    background-color: rgba(0, 0, 0, 0.7); 
-    padding: 10px; 
-    white-space: normal;
-    border-radius: 8px; 
-    margin-top: -45px;
-}
-
-section.module.paralax-2{
-    background-image: url(/assets/img/middleEarth.jpg);
-
-}
-
-section.module.paralax-1{
-    background-image: url(/assets/img/giphy.webp);
-}
-
-section.module.paralax-3{
-    background-image: url(/assets/img/cat.jpg);
-}
-
-section.module.paralax-4{
-    background-image: url(/assets/img/logo-jumping.gif);
-}
-
-
-section.module.paralax h1{
-    color: #FFF;
-    text-align: center;
-    font-size: 78px;
-    z-index: 50;
-    text-transform: uppercase;
-}
-
-section.module.paralax h2{
-    color: #FFF;
-    text-align: center;
-    font-size: 50px;
-    z-index: 50;
-    text-transform: uppercase;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
+    .paralax-1 {
+        min-height: 100vh; /* Mantém a primeira seção alta, mas não 100% */
     }
-    to {
-        width: 100%;
-    }
-}
 
-/* Animação para o efeito de piscada da linha */
-@keyframes blink-caret {
-    50% {
-        border-color: transparent;
-    }
-}
-
-
-
-#Logo{
-    height: 280px;
-    width: 320px;
-    margin-top: -4%;
-    margin-left: -40px;
-}
-
-.pagina{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.pagina img{
-    z-index: -2;
-}
-
-.pagina h3{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    margin-top: -700px;
-
-}
-
-
-#bloco_login{
-    background-color: var(--crjeme2);
-    display: flex;
-    flex-direction: column;
-    float: right;
-    margin-right: 25px;
-}
-
-.rodape p{
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
-
-
-
-@media(max-width: 768px){
-    #Logo{
-        align-items: center;
-    }
-}
-
-@media(max-width: 576px){
-    #Logo{
-        height: 215px;
-        width: 230px;
-        margin-left: -40px;
-        margin-top: -60px;
-    }
-}
-
-@media(max-width: 500px){
-    #Logo{
-        height: 215px;
-        width: 230px;
-        margin-left: -40px;
-        margin-top: -60px;
-    }
-    .container{
-        width: 100%;
-        max-width: 320px;
-        margin: 0 auto;
-        padding: 0 20px;
-    
+    .module-text {
+        /* Garante que os cards não fiquem muito largos em telas médias */
+        max-width: 500px;
     }
     
-    section.module p{
-        margin-bottom: 40px;
-    }
-
-    section.module-text{
-        margin: 0 auto;
+    .linkedin img {
+        width: 50px; /* Diminui o botão em telas menores */
     }
 }
-
-
