@@ -132,13 +132,13 @@ section.module.paralax::after {
 }
 
 /* --- IMAGENS DE FUNDO --- */
-.paralax-1 { background-image: url(assets/img/giphy.webp); }
-.paralax-2 { background-image: url(assets/img/middleEarth.jpg); }
-.paralax-3 { background-image: url(assets/img/cat.jpg); }
-.paralax-4 { background-image: url(assets/img/logo-jumping.gif); }
+.paralax-1 { background-image: url(../img/giphy.webp); }
+.paralax-2 { background-image: url(../img/middleEarth.jpg); }
+.paralax-3 { background-image: url(../img/cat.jpg); }
+.paralax-4 { background-image: url(../img/logo-jumping.gif); }
 .paralax-5 {
     /* Sua imagem de fundo, como você já definiu */
-    background-image: url(assets/img/cat-spinning.gif);
+    background-image: url(../img/cat-spinning.gif);
     background-size: 600px;
 
     background-repeat: no-repeat;
