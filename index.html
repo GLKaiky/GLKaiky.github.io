@@ -10,7 +10,34 @@
 </head>
 
 <body>
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Kaiky França</a>
+            <ul class="nav-menu">
 
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Projetos</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#projeto-dideas">D&deas</a></li>
+                        <li><a href="#projeto-kirian">Kirian.h</a></li>
+                        <li><a href="#projeto-worldchat">World Chat</a></li>
+                        <li><a href="#projeto-theapostate">The Apostate</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer" class="nav-link">Contato</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
     <section class="module paralax paralax-1">
         <div class="hero-content">
             <h1>Kaiky França dos Reis Silva</h1>
@@ -18,58 +45,61 @@
         </div>
     </section>
 
-    <section class="paralax-5">
+    <section id="sobre" class="paralax-5">
         <main class="module-container" style="background-color: transparent;">
             <section class="module-text">
                 <h2>Portfólio</h2>
                 <p><strong>Bem-vindo(a)</strong></p>
                 <p>Aqui você encontra projetos únicos de desenvolvimento para explorar.</p>
-                <p>Clique nos wallpapers para acessar o repositório no GitHub e mergulhar nos detalhes de cada projeto.
-                </p>
+                <p>Clique nos wallpapers para acessar o repositório no GitHub e mergulhar nos detalhes de cada projeto.</p>
                 <p>Críticas, sugestões e ideias são muito bem-vindas!</p>
             </section>
 
             <section class="module-text">
                 <h2>Sobre Mim</h2>
                 <p>Desenvolvedor com foco em Back-End, dedicado à criação de soluções robustas e eficientes.</p>
-                <p>Meu foco está em criar soluções criativas e funcionais. Amo desafios e estou sempre em busca de
-                    aprender
-                    mais.</p>
+                <p>Meu foco está em criar soluções criativas e funcionais. Amo desafios e estou sempre em busca de aprender mais.</p>
             </section>
         </main>
     </section>
 
-    <section class="module paralax paralax-2 project-section"
-        onclick="window.open('https://github.com/GLKaiky/DIdeas-', '_blank')">
-        <div class="project-content">
-            <h2>D&deas</h2>
-            <p>Uma plataforma para jogadores de RPG criarem e compartilharem personagens de Dungeons & Dragons, com
-                integração de IA para recomendação de artefatos.</p>
-        </div>
-    </section>
+    <div id="projetos">
+        <section id="projeto-dideas" class="module paralax paralax-2 project-section" onclick="window.open('https://github.com/GLKaiky/DIdeas-', '_blank')">
+            <div class="project-content">
+                <h2>D&deas</h2>
+                <p>Uma plataforma para jogadores de RPG criarem e compartilharem personagens de Dungeons & Dragons, com integração de IA para recomendação de artefatos.</p>
+            </div>
+        </section>
 
-    <section class="module paralax paralax-3 project-section"
-        onclick="window.open('https://github.com/GLKaiky/Kirian.h', '_blank')">
-        <div class="project-content">
-            <h2>Kirian.h</h2>
-            <p>Uma biblioteca em linguagem C para aplicar conceitos avançados de Estruturas de Dados, permitindo a
-                implementação de arquivos sequenciais otimizados.</p>
-        </div>
-    </section>
+        <section id="projeto-kirian" class="module paralax paralax-3 project-section" onclick="window.open('https://github.com/GLKaiky/Kirian.h', '_blank')">
+            <div class="project-content">
+                <h2>Kirian.h</h2>
+                <p>Uma biblioteca em linguagem C para aplicar conceitos avançados de Estruturas de Dados, permitindo a implementação de arquivos sequenciais otimizados.</p>
+            </div>
+        </section>
 
-    <section class="module paralax paralax-4 project-section"
-        onclick="window.open('https://github.com/GLKaiky/LDDM', '_blank')">
-        <div class="project-content">
-            <h2>World Chat</h2>
-            <p>Projeto em Flutter que permite a extração de textos de imagens e oferece tradução automática com IA,
-                melhorando a experiência de navegação em diversos conteúdos.</p>
-        </div>
-    </section>
+        <section id="projeto-worldchat" class="module paralax paralax-4 project-section" onclick="window.open('https://github.com/GLKaiky/LDDM', '_blank')">
+            <div class="project-content">
+                <h2>World Chat</h2>
+                <p>Projeto em Flutter que permite a extração de textos de imagens e oferece tradução automática com IA, melhorando a experiência de navegação em diversos conteúdos.</p>
+            </div>
+        </section>
+
+        <section id="projeto-theapostate" class="module paralax paralax-6 project-section" onclick="window.open('https://github.com/TI4-GRUPO-10/The-Apostate', '_blank')">
+            <div class="project-content">
+                <h2>The Apostate</h2>
+                <p>
+                    Um survival horror psicológico com elementos de roguelite. Sobreviva a ciclos de loucura em uma igreja amaldiçoada, onde cada fracasso mergulha o ambiente em um dos Sete Pecados Capitais, enquanto uma IA implacável aprende com seus movimentos.
+                </p>
+            </div>
+        </section>
+    </div>
 
     <div class="linkedin">
-        <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer"><img
-                src="./assets/img/linkedin.png" alt="Perfil no LinkedIn"></a>
+        <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer"><img src="./assets/img/linkedin.png" alt="Perfil no LinkedIn"></a>
     </div>
+
+    <script src="assets/js/script.js"></script>
 
 </body>
 

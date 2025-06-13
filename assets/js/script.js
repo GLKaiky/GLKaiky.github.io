@@ -1,45 +1,63 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const senhaInput = document.getElementById('senha');
-    const olho = document.getElementById('togglePassword');
+document.addEventListener('DOMContentLoaded', function() {
 
-    olho.addEventListener('click', function() {
-        let inputTypePassword = senhaInput.type == "password";
+    // ===================================
+    // LÓGICA PARA O MENU HAMBURGER
+    // ===================================
+    const hamburger = document.querySelector(".hamburger");
+    const navMenu = document.querySelector(".nav-menu");
 
-        if (inputTypePassword) {
-            showPassword();
-            olho.setAttribute("name", "eye-outline");
-        } else {
-            hidePassword();
-            olho.setAttribute("name", "eye-off-outline");
-        }
-    });
-
-    function showPassword(){
-        senhaInput.setAttribute("type", "text");
+    if (hamburger) {
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+            document.body.classList.toggle("nav-open");
+        });
     }
 
-    function hidePassword(){
-        senhaInput.setAttribute("type", "password");
+    // LÓGICA SIMPLIFICADA: Apenas fecha o menu ao clicar em um link.
+    // A rolagem suave agora é controlada pelo CSS.
+    document.querySelectorAll(".nav-link, .dropdown-menu a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (navMenu.classList.contains("active")) {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+                document.body.classList.remove("nav-open");
+            }
+        });
+    });
+    
+    // ===================================
+    // LÓGICA PARA O EFEITO DE SCROLL NA NAVBAR
+    // ===================================
+    const header = document.querySelector(".header");
+    if (header) { // Boa prática verificar se o header existe
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
     }
 
-    const dataNascimentoInput = document.getElementById('datadenascimento');
+    // ===================================
+    // LÓGICA PARA O DROPDOWN DE PROJETOS
+    // ===================================
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
 
-    dataNascimentoInput.addEventListener('change', function() {
-        // Obtém a data de nascimento inserida pelo usuário
-        let dataNascimento = new Date(dataNascimentoInput.value);
-        
-        // Obtém a data atual
-        let dataAtual = new Date();
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', function(event) {
+            // Previne que o link '#' do toggle cause um salto na página
+            event.preventDefault();
+            dropdownMenu.classList.toggle('show');
+        });
+    }
 
-        // Calcula a idade da pessoa
-        let idade = dataAtual.getFullYear() - dataNascimento.getFullYear();
-
-        if (idade < 12) {
-            alert("Você deve ter pelo menos 12 anos de idade.");
-            dataNascimentoInput.value = ""; // Limpa o valor do campo
+    // Fecha o dropdown se o usuário clicar fora dele
+    window.addEventListener('click', function(event) {
+        if (dropdownMenu && dropdownMenu.classList.contains('show') && !event.target.closest('.dropdown')) {
+            dropdownMenu.classList.remove('show');
         }
     });
-
-
 });
-

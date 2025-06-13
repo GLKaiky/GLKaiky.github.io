@@ -4,6 +4,14 @@
     --white: #fefcf0;
 }
 
+html {
+    /* ✨ A MÁGICA DO SCROLL SUAVE ACONTECE AQUI ✨ */
+    scroll-behavior: smooth;
+    
+    /* Garante que o cálculo de largura e altura seja consistente */
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -14,7 +22,12 @@ body {
     overflow-wrap: break-word;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 900;
 }
 
@@ -33,7 +46,7 @@ section.module.paralax {
     align-items: center;
     text-align: center;
     /* MUDANÇA: Usamos min-height para garantir que a seção possa crescer se o conteúdo precisar */
-    min-height: 80vh; 
+    min-height: 80vh;
     overflow: hidden;
     background-position: center center;
     background-repeat: no-repeat;
@@ -46,7 +59,8 @@ section.module.paralax {
 section.module.paralax::after {
     content: "";
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
     background: rgba(0, 0, 0, 0.6);
@@ -54,15 +68,18 @@ section.module.paralax::after {
 }
 
 /* Conteúdo sobreposto deve ter z-index maior */
-.hero-content, .project-content {
+.hero-content,
+.project-content {
     position: relative;
     z-index: 2;
-    max-width: 800px; /* Limita a largura do conteúdo de texto */
+    max-width: 800px;
+    /* Limita a largura do conteúdo de texto */
 }
 
 /* --- HERO SECTION (PRIMEIRA SEÇÃO) --- */
 .paralax-1 {
-    min-height: 100vh; /* A primeira seção pode ocupar a tela toda */
+    min-height: 100vh;
+    /* A primeira seção pode ocupar a tela toda */
 }
 
 .hero-content h1 {
@@ -92,7 +109,8 @@ section.module.paralax::after {
     background-color: rgba(0, 0, 0, 0.7);
     padding: 1.5rem;
     border-radius: 8px;
-    flex: 1 1 400px; /* Permite que os cards cresçam e encolham */
+    flex: 1 1 400px;
+    /* Permite que os cards cresçam e encolham */
     max-width: 600px;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -132,10 +150,22 @@ section.module.paralax::after {
 }
 
 /* --- IMAGENS DE FUNDO --- */
-.paralax-1 { background-image: url(../img/giphy.webp); }
-.paralax-2 { background-image: url(../img/middleEarth.jpg); }
-.paralax-3 { background-image: url(../img/cat.jpg); }
-.paralax-4 { background-image: url(../img/logo-jumping.gif); }
+.paralax-1 {
+    background-image: url(../img/giphy.webp);
+}
+
+.paralax-2 {
+    background-image: url(../img/middleEarth.jpg);
+}
+
+.paralax-3 {
+    background-image: url(../img/cat.jpg);
+}
+
+.paralax-4 {
+    background-image: url(../img/logo-jumping.gif);
+}
+
 .paralax-5 {
     /* Sua imagem de fundo, como você já definiu */
     background-image: url(../img/cat-spinning.gif);
@@ -146,6 +176,7 @@ section.module.paralax::after {
     background-position: center;
 
 }
+
 /* --- BOTÃO FLUTUANTE LINKEDIN --- */
 .linkedin {
     position: fixed;
@@ -155,7 +186,8 @@ section.module.paralax::after {
 }
 
 .linkedin img {
-    width: 60px; /* Um pouco menor para mobile */
+    width: 60px;
+    /* Um pouco menor para mobile */
     height: auto;
     transition: transform 0.3s ease;
 }
@@ -164,22 +196,234 @@ section.module.paralax::after {
     transform: scale(1.15);
 }
 
+/* ========== ESTILOS DA NAVBAR ========== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    transition: background-color 0.4s ease, padding 0.4s ease;
+}
+
+/* Efeito dinâmico ao rolar a página */
+.header.scrolled {
+    background-color: rgba(37, 35, 35, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    /* Suporte para Safari */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    transition: padding 0.4s ease;
+}
+
+.header.scrolled .navbar {
+    padding: 1rem 2rem;
+    /* Navbar encolhe um pouco ao rolar */
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2.5rem;
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    color: var(--creme1);
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    padding-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--white);
+}
+
+/* Efeito de sublinhado animado */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* --- MENU HAMBURGER (MOBILE) --- */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--white);
+    transition: all 0.3s ease-in-out;
+}
+
+/* ========== ESTILOS DO DROPDOWN ========== */
+
+/* Posiciona o container do dropdown para que o menu interno seja absoluto em relação a ele. */
+.nav-item.dropdown {
+    position: relative;
+}
+
+/* Seta para indicar que é um dropdown. */
+.dropdown-toggle::after {
+    content: ' ▾';
+    /* Você pode usar um ícone de seta aqui se preferir */
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+/* O menu dropdown em si. Fica escondido por padrão. */
+.dropdown-menu {
+    display: none;
+    /* Escondido por padrão */
+    position: absolute;
+    top: 100%;
+    /* Começa logo abaixo do item "Projetos" */
+    left: 0;
+    list-style: none;
+    padding: 0.5rem 0;
+    margin: 0.5rem 0 0;
+    /* Pequeno espaço do topo */
+    z-index: 1001;
+    /* Garante que fique acima de outros elementos */
+
+    /* Estilo visual consistente com a navbar */
+    background-color: rgba(37, 35, 35, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    min-width: 200px;
+    /* Largura mínima */
+}
+
+/* Classe que será adicionada via JS para mostrar o menu */
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Estilo dos itens dentro do dropdown */
+.dropdown-menu li a {
+    color: var(--creme1);
+    padding: 0.75rem 1.5rem;
+    display: block;
+    /* Faz o link ocupar todo o espaço do 'li' */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Efeito hover nos itens do dropdown */
+.dropdown-menu li a:hover {
+    background-color: var(--creme1);
+    color: var(--black1);
+}
+
+
 
 /* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
 
 /* Para tablets e celulares (telas menores que 768px) */
 @media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    /* Animação do Hamburger para 'X' */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        /* Começa fora da tela */
+        top: 0;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        transition: left 0.4s ease;
+
+        /* Fundo com efeito de vidro */
+        background-color: rgba(37, 35, 35, 0.9);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+    }
+
+    .nav-menu.active {
+        left: 0;
+        /* Menu entra na tela */
+    }
+
+    .nav-item {
+        margin: 2rem 0;
+    }
+
+    .nav-link {
+        font-size: 1.8rem;
+        /* Links maiores para toque fácil */
+    }
+
+    /* Garante que o conteúdo não fique por cima da navbar ativa */
+    body.nav-open {
+        overflow: hidden;
+    }
 
     .paralax-1 {
-        min-height: 100vh; /* Mantém a primeira seção alta, mas não 100% */
+        min-height: 100vh;
+        /* Mantém a primeira seção alta, mas não 100% */
     }
 
     .module-text {
         /* Garante que os cards não fiquem muito largos em telas médias */
         max-width: 500px;
     }
-    
+
     .linkedin img {
-        width: 50px; /* Diminui o botão em telas menores */
+        width: 50px;
+        /* Diminui o botão em telas menores */
     }
 }
