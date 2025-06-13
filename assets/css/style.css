@@ -166,6 +166,10 @@ section.module.paralax::after {
     background-image: url(../img/logo-jumping.gif);
 }
 
+.paralax-6 {
+    background-image: url(../img/TheApostate.png);
+}
+
 .paralax-5 {
     /* Sua imagem de fundo, como você já definiu */
     background-image: url(../img/cat-spinning.gif);
