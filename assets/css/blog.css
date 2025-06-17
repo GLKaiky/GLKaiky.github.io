@@ -92,6 +92,7 @@
 /* Cores customizadas para cada categoria */
 .post-category.youtube { background-color: #ff0000; color: white; }
 .post-category.award { background-color: #ffc107; }
+.post-category.linkedIn {background-color: #0e76a8; color: white;}
 
 .post-date {
     font-size: 0.9rem;
