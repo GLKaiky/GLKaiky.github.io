@@ -17,14 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===================================
     // LÓGICA PARA FECHAR O MENU AO CLICAR EM UM LINK
     // ===================================
-    // <<< ALTERAÇÃO CHAVE AQUI >>>
-    // Selecionamos todos os links que devem fechar o menu.
-    // Usamos ":not(.dropdown-toggle)" para EXCLUIR o link "Projetos" desta lógica.
-    // Assim, apenas os links "finais" fecharão o menu mobile.
     document.querySelectorAll(".nav-link:not(.dropdown-toggle), .dropdown-menu a").forEach(link => {
         link.addEventListener("click", () => {
-            // Se o menu mobile estiver ativo, fecha ele.
-            if (navMenu.classList.contains("active")) {
+            if (navMenu && navMenu.classList.contains("active")) { // Verifica se navMenu existe antes de usar
                 hamburger.classList.remove("active");
                 navMenu.classList.remove("active");
                 document.body.classList.remove("nav-open");
@@ -48,7 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ===================================
     // LÓGICA PARA O DROPDOWN DE PROJETOS
-    // (Esta parte já estava correta)
     // ===================================
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -56,20 +50,60 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (dropdownToggle && dropdownMenu) {
         dropdownToggle.addEventListener('click', function(event) {
-            // Previne que o link '#' do toggle cause um salto na página
             event.preventDefault();
-            // Impede que o evento de clique "borbulhe" para o window,
-            // o que fecharia o menu imediatamente.
             event.stopPropagation(); 
             dropdownMenu.classList.toggle('show');
         });
     }
 
-    // Fecha o dropdown se o usuário clicar fora dele
     window.addEventListener('click', function(event) {
-        // Verifica se o dropdown está aberto e se o clique não foi dentro do container do dropdown
-        if (dropdownMenu && dropdownMenu.classList.contains('show') && !dropdownContainer.contains(event.target)) {
+        if (dropdownMenu && dropdownMenu.classList.contains('show') && dropdownContainer && !dropdownContainer.contains(event.target)) { // Adicionado verificação para dropdownContainer
             dropdownMenu.classList.remove('show');
         }
     });
+
+    // ===================================
+    // LÓGICA DO MODO CLARO/ESCURO
+    // ===================================
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme'); // Pega o tema salvo
+
+    // Função para aplicar o tema
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            body.classList.add('light-theme');
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Ícone de sol
+            themeToggleBtn.setAttribute('aria-label', 'Alternar para tema escuro');
+        } else {
+            body.classList.remove('light-theme');
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Ícone de lua
+            themeToggleBtn.setAttribute('aria-label', 'Alternar para tema claro');
+        }
+    }
+
+    // Aplica o tema salvo ao carregar a página
+    if (currentTheme) {
+        applyTheme(currentTheme);
+    } else {
+        // Se não houver tema salvo, verifica a preferência do sistema
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            applyTheme('dark'); // Padrão se o sistema preferir escuro
+        } else {
+            applyTheme('light'); // Padrão se o sistema preferir claro ou nenhum
+        }
+    }
+
+    // Event Listener para o botão de alternância
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('light-theme')) {
+                applyTheme('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                applyTheme('light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
 });

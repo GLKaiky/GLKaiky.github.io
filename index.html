@@ -7,12 +7,14 @@
     <title>Portfólio | Kaiky França</title>
     <link rel="stylesheet" href="assets/css/style.css" class="css">
     <link rel="icon" href="assets/img/coding.png" class="image/x-icon">
+    <!-- Ícone para o toggle de tema (ex: FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
     <header class="header">
         <nav class="navbar">
-            <a href="#" class="nav-logo">Kaiky França</a>
+            <a href="index.html" class="nav-logo">Kaiky França</a>
             <ul class="nav-menu">
 
                 <li class="nav-item dropdown">
@@ -29,6 +31,13 @@
                 </li>
                 <li class="nav-item">
                     <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer" class="nav-link">Contato</a>
+                </li>
+                <!-- Botão para alternar tema -->
+                <li class="nav-item">
+                    <button id="theme-toggle" class="theme-toggle-button" aria-label="Alternar tema entre claro e escuro">
+                        <i class="fas fa-moon"></i> <!-- Ícone de lua para dark mode -->
+                        <!-- O JavaScript vai trocar para o ícone de sol quando estiver no modo claro -->
+                    </button>
                 </li>
             </ul>
             <div class="hamburger">

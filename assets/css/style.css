@@ -1,14 +1,38 @@
 :root {
-    --black1: #252323;
-    --creme1: #f6e4cc;
-    --white: #fefcf0;
+    /* Cores do Tema Escuro (Padrão) */
+    --primary-bg: #252323;     /* Fundo principal escuro */
+    --secondary-bg: rgba(0, 0, 0, 0.7); /* Fundo dos cards e overlays */
+    --text-color: #fefcf0;     /* Cor do texto claro (white) */
+    --accent-color: #f6e4cc;   /* Cor de destaque (creme) */
+    --link-color: #f6e4cc;     /* Cor dos links no tema escuro */
+    --link-hover-color: #fefcf0; /* Cor dos links ao passar o mouse */
+    --border-color: rgba(255, 255, 255, 0.1); /* Cor da borda leve */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Cor da sombra */
+    --navbar-bg-scrolled: rgba(37, 35, 35, 0.85); /* Navbar transparente ao rolar */
+    --dropdown-bg: rgba(37, 35, 35, 0.9); /* Fundo do dropdown */
+    --dropdown-item-hover-bg: var(--accent-color); /* Fundo do item do dropdown ao hover */
+    --dropdown-item-hover-text: var(--primary-bg); /* Cor do texto do item do dropdown ao hover */
 }
 
+/* Cores do Tema Claro */
+body.light-theme {
+    --primary-bg: #fefcf0;     /* Fundo principal claro */
+    --secondary-bg: rgba(255, 255, 255, 0.9); /* Fundo dos cards e overlays claros */
+    --text-color: #252323;     /* Cor do texto escuro */
+    --accent-color: #a35d10;   /* Cor de destaque para tema claro (um marrom/laranja) */
+    --link-color: #a35d10;     /* Cor dos links no tema claro */
+    --link-hover-color: #252323; /* Cor dos links ao passar o mouse */
+    --border-color: rgba(0, 0, 0, 0.1); /* Cor da borda leve */
+    --shadow-color: rgba(0, 0, 0, 0.15); /* Sombra mais clara */
+    --navbar-bg-scrolled: rgba(254, 252, 240, 0.9); /* Navbar clara transparente ao rolar */
+    --dropdown-bg: rgba(254, 252, 240, 0.95); /* Fundo do dropdown claro */
+    --dropdown-item-hover-bg: var(--accent-color); /* Fundo do item do dropdown ao hover */
+    --dropdown-item-hover-text: var(--text-color); /* Cor do texto do item do dropdown ao hover */
+}
+
+
 html {
-    /* ✨ A MÁGICA DO SCROLL SUAVE ACONTECE AQUI ✨ */
     scroll-behavior: smooth;
-    
-    /* Garante que o cálculo de largura e altura seja consistente */
     box-sizing: border-box;
 }
 
@@ -16,19 +40,16 @@ body {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
-    background-color: var(--black1);
-    color: var(--white);
+    background-color: var(--primary-bg); /* Usa variável */
+    color: var(--text-color); /* Usa variável */
     word-wrap: break-word;
     overflow-wrap: break-word;
+    transition: background-color 0.5s ease, color 0.5s ease; /* Transição suave para mudança de tema */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
+    color: var(--text-color); /* Garante que títulos mudem de cor */
 }
 
 /* --- ESTRUTURA E MÓDULOS --- */
@@ -45,13 +66,11 @@ section.module.paralax {
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* MUDANÇA: Usamos min-height para garantir que a seção possa crescer se o conteúdo precisar */
     min-height: 80vh;
     overflow: hidden;
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* EFEITO PARALLAX: Mantido para desktop */
     background-attachment: fixed;
 }
 
@@ -63,7 +82,7 @@ section.module.paralax::after {
     left: 0;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--secondary-bg); /* Usa variável para o overlay */
     z-index: 1;
 }
 
@@ -73,26 +92,23 @@ section.module.paralax::after {
     position: relative;
     z-index: 2;
     max-width: 800px;
-    /* Limita a largura do conteúdo de texto */
 }
 
 /* --- HERO SECTION (PRIMEIRA SEÇÃO) --- */
 .paralax-1 {
     min-height: 100vh;
-    /* A primeira seção pode ocupar a tela toda */
 }
 
 .hero-content h1 {
-    /* MUDANÇA: Fonte responsiva com clamp(min, ideal, max) */
     font-size: clamp(2.5rem, 8vw, 4.5rem);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 4px var(--shadow-color); /* Usa variável */
     margin: 0;
 }
 
 .hero-content .subtitle {
     font-size: clamp(1.2rem, 4vw, 1.5rem);
     font-weight: 300;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 2px var(--shadow-color); /* Usa variável */
 }
 
 /* --- SEÇÃO SOBRE/PORTFÓLIO (FUNDO ESCURO) --- */
@@ -102,22 +118,21 @@ section.module.paralax::after {
     flex-wrap: wrap;
     gap: 2rem;
     padding: 4rem 1rem;
-    background-color: var(--black1);
+    background-color: var(--primary-bg); /* Usa variável */
 }
 
 .module-text {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: var(--secondary-bg); /* Usa variável */
     padding: 1.5rem;
     border-radius: 8px;
     flex: 1 1 400px;
-    /* Permite que os cards cresçam e encolham */
     max-width: 600px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-color); /* Usa variável */
 }
 
 .module-text h2 {
     margin-top: 0;
-    border-bottom: 2px solid var(--creme1);
+    border-bottom: 2px solid var(--accent-color); /* Usa variável */
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -171,14 +186,10 @@ section.module.paralax::after {
 }
 
 .paralax-5 {
-    /* Sua imagem de fundo, como você já definiu */
     background-image: url(../img/cat-spinning.gif);
     background-size: 600px;
-
     background-repeat: no-repeat;
-
     background-position: center;
-
 }
 
 /* --- BOTÃO FLUTUANTE LINKEDIN --- */
@@ -191,7 +202,6 @@ section.module.paralax::after {
 
 .linkedin img {
     width: 60px;
-    /* Um pouco menor para mobile */
     height: auto;
     transition: transform 0.3s ease;
 }
@@ -212,11 +222,10 @@ section.module.paralax::after {
 
 /* Efeito dinâmico ao rolar a página */
 .header.scrolled {
-    background-color: rgba(37, 35, 35, 0.85);
+    background-color: var(--navbar-bg-scrolled); /* Usa variável */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    /* Suporte para Safari */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px var(--shadow-color); /* Usa variável */
 }
 
 .navbar {
@@ -229,13 +238,12 @@ section.module.paralax::after {
 
 .header.scrolled .navbar {
     padding: 1rem 2rem;
-    /* Navbar encolhe um pouco ao rolar */
 }
 
 .nav-logo {
     font-size: 1.8rem;
     font-weight: 700;
-    color: var(--white);
+    color: var(--text-color); /* Usa variável */
     text-decoration: none;
 }
 
@@ -251,7 +259,7 @@ section.module.paralax::after {
 
 .nav-link {
     font-size: 1.1rem;
-    color: var(--creme1);
+    color: var(--link-color); /* Usa variável */
     text-decoration: none;
     font-weight: 500;
     position: relative;
@@ -260,7 +268,7 @@ section.module.paralax::after {
 }
 
 .nav-link:hover {
-    color: var(--white);
+    color: var(--link-hover-color); /* Usa variável */
 }
 
 /* Efeito de sublinhado animado */
@@ -271,7 +279,7 @@ section.module.paralax::after {
     left: 0;
     width: 0;
     height: 2px;
-    background-color: var(--white);
+    background-color: var(--link-hover-color); /* Usa variável */
     transition: width 0.3s ease;
 }
 
@@ -290,72 +298,171 @@ section.module.paralax::after {
     width: 25px;
     height: 3px;
     margin: 5px auto;
-    background-color: var(--white);
+    background-color: var(--text-color); /* Usa variável */
     transition: all 0.3s ease-in-out;
 }
 
 /* ========== ESTILOS DO DROPDOWN ========== */
 
-/* Posiciona o container do dropdown para que o menu interno seja absoluto em relação a ele. */
 .nav-item.dropdown {
     position: relative;
 }
 
-/* Seta para indicar que é um dropdown. */
 .dropdown-toggle::after {
     content: ' ▾';
-    /* Você pode usar um ícone de seta aqui se preferir */
     font-size: 0.8em;
     display: inline-block;
 }
 
-/* O menu dropdown em si. Fica escondido por padrão. */
 .dropdown-menu {
     display: none;
-    /* Escondido por padrão */
     position: absolute;
     top: 100%;
-    /* Começa logo abaixo do item "Projetos" */
     left: 0;
     list-style: none;
     padding: 0.5rem 0;
     margin: 0.5rem 0 0;
-    /* Pequeno espaço do topo */
     z-index: 1001;
-    /* Garante que fique acima de outros elementos */
-
-    /* Estilo visual consistente com a navbar */
-    background-color: rgba(37, 35, 35, 0.9);
+    background-color: var(--dropdown-bg); /* Usa variável */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px var(--shadow-color); /* Usa variável */
     min-width: 200px;
-    /* Largura mínima */
 }
 
-/* Classe que será adicionada via JS para mostrar o menu */
 .dropdown-menu.show {
     display: block;
 }
 
-/* Estilo dos itens dentro do dropdown */
 .dropdown-menu li a {
-    color: var(--creme1);
+    color: var(--link-color); /* Usa variável */
     padding: 0.75rem 1.5rem;
     display: block;
-    /* Faz o link ocupar todo o espaço do 'li' */
     text-decoration: none;
     font-size: 1rem;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-/* Efeito hover nos itens do dropdown */
 .dropdown-menu li a:hover {
-    background-color: var(--creme1);
-    color: var(--black1);
+    background-color: var(--dropdown-item-hover-bg); /* Usa variável */
+    color: var(--dropdown-item-hover-text); /* Usa variável */
 }
 
+/* --- Botão de Tema --- */
+.theme-toggle-button {
+    background: none;
+    border: none;
+    color: var(--link-color); /* Cor do ícone */
+    font-size: 1.5rem; /* Tamanho do ícone */
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle-button:hover {
+    color: var(--link-hover-color);
+    transform: scale(1.1);
+}
+
+/* ========== ESTILOS DO BLOG (blog.css) ========== */
+
+/* Garante que o fundo do blog também use as variáveis */
+.paralax-blog {
+    background-image: url(../img/stars.gif);
+}
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    justify-content: center;
+    background-color: var(--primary-bg); /* Usa variável */
+}
+
+.post-card {
+    background-color: var(--secondary-bg); /* Usa variável */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-color); /* Usa variável */
+    width: 100%;
+    max-width: 380px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px var(--shadow-color); /* Usa variável */
+}
+
+.post-image-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.post-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-card:hover .post-image {
+    transform: scale(1.05);
+}
+
+.post-content {
+    padding: 1.5rem;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 0.9em;
+    color: var(--text-color); /* Usa variável */
+}
+
+.post-category {
+    background-color: var(--accent-color); /* Usa variável */
+    color: var(--primary-bg); /* Ajuste para ter contraste */
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.post-title {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.8rem;
+    color: var(--text-color); /* Usa variável */
+}
+
+.post-excerpt {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color); /* Usa variável */
+    margin-bottom: 1.2rem;
+}
+
+.post-link {
+    display: inline-block;
+    background-color: var(--accent-color); /* Usa variável */
+    color: var(--primary-bg); /* Ajuste para ter contraste */
+    padding: 0.75rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.post-link:hover {
+    background-color: var(--link-hover-color); /* Usa variável, pode ajustar para um tom mais escuro/claro */
+    color: var(--primary-bg); /* Ajuste para ter contraste */
+}
 
 
 /* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
@@ -382,7 +489,6 @@ section.module.paralax::after {
     .nav-menu {
         position: fixed;
         left: -100%;
-        /* Começa fora da tela */
         top: 0;
         flex-direction: column;
         justify-content: center;
@@ -391,15 +497,13 @@ section.module.paralax::after {
         text-align: center;
         transition: left 0.4s ease;
 
-        /* Fundo com efeito de vidro */
-        background-color: rgba(37, 35, 35, 0.9);
+        background-color: var(--dropdown-bg); /* Usa variável */
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
     }
 
     .nav-menu.active {
         left: 0;
-        /* Menu entra na tela */
     }
 
     .nav-item {
@@ -408,26 +512,25 @@ section.module.paralax::after {
 
     .nav-link {
         font-size: 1.8rem;
-        /* Links maiores para toque fácil */
     }
 
-    /* Garante que o conteúdo não fique por cima da navbar ativa */
     body.nav-open {
         overflow: hidden;
     }
 
     .paralax-1 {
         min-height: 100vh;
-        /* Mantém a primeira seção alta, mas não 100% */
     }
 
     .module-text {
-        /* Garante que os cards não fiquem muito largos em telas médias */
         max-width: 500px;
     }
 
     .linkedin img {
         width: 50px;
-        /* Diminui o botão em telas menores */
+    }
+
+    .blog-container {
+        padding: 1rem;
     }
 }
