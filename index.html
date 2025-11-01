@@ -5,26 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Kaiky França</title>
-    <link rel="stylesheet" href="assets/css/style.css" class="css">
+    <link rel="stylesheet" href="assets/css/style.css" class="css"> 
     <link rel="icon" href="assets/img/coding.png" class="image/x-icon">
-    <!-- Ícone para o toggle de tema (ex: FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header class="header">
         <nav class="navbar">
             <a href="index.html" class="nav-logo">Kaiky França</a>
+            
             <ul class="nav-menu">
-
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Projetos</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#projeto-dideas">D&deas</a></li>
-                        <li><a href="#projeto-kirian">Kirian.h</a></li>
-                        <li><a href="#projeto-worldchat">World Chat</a></li>
-                        <li><a href="#projeto-theapostate">The Apostate</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a href="#projetos" class="nav-link">Projetos</a>
                 </li>
                 <li class="nav-item">
                     <a href="blog.html" class="nav-link">Blog</a>
@@ -32,14 +29,8 @@
                 <li class="nav-item">
                     <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer" class="nav-link">Contato</a>
                 </li>
-                <!-- Botão para alternar tema -->
-                <li class="nav-item">
-                    <button id="theme-toggle" class="theme-toggle-button" aria-label="Alternar tema entre claro e escuro">
-                        <i class="fas fa-moon"></i> <!-- Ícone de lua para dark mode -->
-                        <!-- O JavaScript vai trocar para o ícone de sol quando estiver no modo claro -->
-                    </button>
-                </li>
             </ul>
+            
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -47,69 +38,80 @@
             </div>
         </nav>
     </header>
-    <section class="module paralax paralax-1">
-        <div class="hero-content">
-            <h1>Kaiky França dos Reis Silva</h1>
-            <p class="subtitle">Desenvolvedor Back-End</p>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Kaiky França dos Reis Silva</h1>
+        <p class="subtitle">Desenvolvedor Back-End</p>
+        
+        <br>
+        <div class="hero-links">
+            <a href="mailto:seu-email@exemplo.com" target="_blank" rel="noopener noreferrer" aria-label="Enviar email">
+                <img src="assets/img/mail_icon.png" alt="Ícone de Email">
+            </a>
+            <a href="https://github.com/GLKaiky" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil no GitHub">
+                <img src="assets/img/github_icon.png" alt="Ícone do GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil no LinkedIn">
+                <img src="assets/img/linkedin_icon.png" alt="Ícone do LinkedIn">
+            </a>
         </div>
-    </section>
+        </div>
 
-    <section id="sobre" class="paralax-5">
-        <main class="module-container" style="background-color: transparent;">
-            <section class="module-text">
-                <h2>Portfólio</h2>
-                <p><strong>Bem-vindo(a)</strong></p>
-                <p>Aqui você encontra projetos únicos de desenvolvimento para explorar.</p>
-                <p>Clique nos wallpapers para acessar o repositório no GitHub e mergulhar nos detalhes de cada projeto.</p>
-                <p>Críticas, sugestões e ideias são muito bem-vindas!</p>
-            </section>
+        <div class="walking-cat" aria-hidden="true"></div>
+</section>
 
-            <section class="module-text">
-                <h2>Sobre Mim</h2>
-                <p>Desenvolvedor com foco em Back-End, dedicado à criação de soluções robustas e eficientes.</p>
-                <p>Meu foco está em criar soluções criativas e funcionais. Amo desafios e estou sempre em busca de aprender mais.</p>
-            </section>
-        </main>
-    </section>
-
-    <div id="projetos">
-        <section id="projeto-dideas" class="module paralax paralax-2 project-section" onclick="window.open('https://github.com/GLKaiky/DIdeas-', '_blank')">
-            <div class="project-content">
-                <h2>D&deas</h2>
-                <p>Uma plataforma para jogadores de RPG criarem e compartilharem personagens de Dungeons & Dragons, com integração de IA para recomendação de artefatos.</p>
+    <main class="content-wrapper" id="projetos">
+        
+        <section class="bento-grid">
+            
+            <div class="bento-card card-sobre span-col-2 span-row-2">
+                <h2>Olá! Bem-vindo(a).</h2>
+                <p>Desenvolvedor com foco em Back-End, dedicado à criação de soluções robustas e eficientes. Meu foco está em criar soluções criativas e funcionais. Amo desafios e estou sempre em busca de aprender mais.</p>
+                <p>Aqui você encontra projetos únicos. Críticas, sugestões e ideias são muito bem-vindas!</p>
             </div>
-        </section>
 
-        <section id="projeto-kirian" class="module paralax paralax-3 project-section" onclick="window.open('https://github.com/GLKaiky/Kirian.h', '_blank')">
-            <div class="project-content">
-                <h2>Kirian.h</h2>
-                <p>Uma biblioteca em linguagem C para aplicar conceitos avançados de Estruturas de Dados, permitindo a implementação de arquivos sequenciais otimizados.</p>
-            </div>
-        </section>
+            <a href="https://github.com/GLKaiky/DIdeas-" target="_blank" rel="noopener noreferrer" class="bento-card" id="projeto-dideas">
+                <img src="assets/img/middleEarth.jpg" alt="Thumbnail do projeto D&deas" class="card-image">
+                <div class="card-content">
+                    <h2>D&deas</h2>
+                    <p>Plataforma para jogadores de RPG criarem e compartilharem personagens de D&D, com IA para recomendação de artefatos.</p>
+                </div>
+            </a>
 
-        <section id="projeto-worldchat" class="module paralax paralax-4 project-section" onclick="window.open('https://github.com/GLKaiky/LDDM', '_blank')">
-            <div class="project-content">
-                <h2>World Chat</h2>
-                <p>Projeto em Flutter que permite a extração de textos de imagens e oferece tradução automática com IA, melhorando a experiência de navegação em diversos conteúdos.</p>
-            </div>
-        </section>
+            <a href="https://github.com/GLKaiky/Kirian.h" target="_blank" rel="noopener noreferrer" class="bento-card" id="projeto-kirian">
+                <img src="assets/img/cat.jpg" alt="Thumbnail do projeto Kirian.h" class="card-image">
+                <div class="card-content">
+                    <h2>Kirian.h</h2>
+                    <p>Biblioteca em C para aplicar conceitos avançados de Estruturas de Dados e arquivos sequenciais otimizados.</p>
+                </div>
+            </a>
 
-        <section id="projeto-theapostate" class="module paralax paralax-6 project-section" onclick="window.open('https://github.com/TI4-GRUPO-10/The-Apostate', '_blank')">
-            <div class="project-content">
-                <h2>The Apostate</h2>
-                <p>
-                    Um survival horror psicológico com elementos de roguelite. Sobreviva a ciclos de loucura em uma igreja amaldiçoada, onde cada fracasso mergulha o ambiente em um dos Sete Pecados Capitais, enquanto uma IA implacável aprende com seus movimentos.
-                </p>
-            </div>
-        </section>
-    </div>
+            <a href="https://github.com/TI4-GRUPO-10/The-Apostate" target="_blank" rel="noopener noreferrer" class="bento-card span-col-2" id="projeto-theapostate">
+                <img src="assets/img/TheApostate.png" alt="Thumbnail do projeto The Apostate" class="card-image">
+                <div class="card-content">
+                    <h2>The Apostate</h2>
+                    <p>Survival horror psicológico com elementos de roguelite. Sobreviva a ciclos de loucura em uma igreja amaldiçoada.</p>
+                </div>
+            </a>
+            
+            <a href="https://github.com/GLKaiky/LDDM" target="_blank" rel="noopener noreferrer" class="bento-card" id="projeto-worldchat">
+                <img src="assets/img/logo-jumping.gif" alt="Thumbnail do projeto World Chat" class="card-image"> <div class="card-content">
+                    <h2>World Chat</h2>
+                    <p>Projeto em Flutter que permite a extração de textos de imagens e oferece tradução automática com IA.</p>
+                </div>
+            </a>
 
-    <div class="linkedin">
-        <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer"><img src="./assets/img/linkedin.png" alt="Perfil no LinkedIn"></a>
-    </div>
+            <a href="blog.html" class="bento-card card-link-blog">
+                <div class="card-content">
+                    <h2>Blog</h2>
+                    <p>Confira meus posts e artigos sobre tecnologia e desenvolvimento.</p>
+                    <span class="card-link-arrow">&rarr;</span>
+                </div>
+            </a>
+
+        </section> </main>
 
     <script src="assets/js/script.js"></script>
-
 </body>
-
 </html>

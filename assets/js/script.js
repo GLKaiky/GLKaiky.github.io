@@ -1,109 +1,64 @@
-document.addEventListener('DOMContentLoaded', function() {
+// ==========================================================
+// 3. ANIMAÇÃO DE SCROLL (Intersection Observer Reversível)
+// ==========================================================
+document.addEventListener('DOMContentLoaded', () => {
 
-    // ===================================
-    // LÓGICA PARA O MENU HAMBURGER
-    // ===================================
-    const hamburger = document.querySelector(".hamburger");
-    const navMenu = document.querySelector(".nav-menu");
+    const cards = document.querySelectorAll('.bento-card, .post-card');
 
-    if (hamburger) {
-        hamburger.addEventListener("click", () => {
-            hamburger.classList.toggle("active");
-            navMenu.classList.toggle("active");
-            document.body.classList.toggle("nav-open");
-        });
-    }
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        // O threshold agora é um array. 
+        // Isso ajuda a garantir que a animação dispare de forma consistente
+        // ao entrar e ao sair.
+        threshold: 0.1 
+    };
 
-    // ===================================
-    // LÓGICA PARA FECHAR O MENU AO CLICAR EM UM LINK
-    // ===================================
-    document.querySelectorAll(".nav-link:not(.dropdown-toggle), .dropdown-menu a").forEach(link => {
-        link.addEventListener("click", () => {
-            if (navMenu && navMenu.classList.contains("active")) { // Verifica se navMenu existe antes de usar
-                hamburger.classList.remove("active");
-                navMenu.classList.remove("active");
-                document.body.classList.remove("nav-open");
-            }
-        });
-    });
-    
-    // ===================================
-    // LÓGICA PARA O EFEITO DE SCROLL NA NAVBAR
-    // ===================================
-    const header = document.querySelector(".header");
-    if (header) {
-        window.addEventListener("scroll", function() {
-            if (window.scrollY > 50) {
-                header.classList.add("scrolled");
+    // A função que será chamada
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Elemento está entrando na tela: ADICIONA a classe
+                entry.target.classList.add('is-visible');
             } else {
-                header.classList.remove("scrolled");
+                // Elemento está saindo da tela: REMOVE a classe
+                entry.target.classList.remove('is-visible');
             }
         });
-    }
+    };
 
-    // ===================================
-    // LÓGICA PARA O DROPDOWN DE PROJETOS
-    // ===================================
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const dropdownMenu = document.querySelector('.dropdown-menu');
-    const dropdownContainer = document.querySelector('.nav-item.dropdown');
+    // Cria o observer
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    if (dropdownToggle && dropdownMenu) {
-        dropdownToggle.addEventListener('click', function(event) {
-            event.preventDefault();
-            event.stopPropagation(); 
-            dropdownMenu.classList.toggle('show');
-        });
-    }
-
-    window.addEventListener('click', function(event) {
-        if (dropdownMenu && dropdownMenu.classList.contains('show') && dropdownContainer && !dropdownContainer.contains(event.target)) { // Adicionado verificação para dropdownContainer
-            dropdownMenu.classList.remove('show');
-        }
+    // Manda o observer "observar" cada card
+    cards.forEach(card => {
+        observer.observe(card);
     });
 
-    // ===================================
-    // LÓGICA DO MODO CLARO/ESCURO
-    // ===================================
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-    const currentTheme = localStorage.getItem('theme'); // Pega o tema salvo
 
-    // Função para aplicar o tema
-    function applyTheme(theme) {
-        if (theme === 'light') {
-            body.classList.add('light-theme');
-            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Ícone de sol
-            themeToggleBtn.setAttribute('aria-label', 'Alternar para tema escuro');
+    let lastScrollY = window.scrollY; 
+    const header = document.querySelector('.header');
+    // Distância (em pixels) que o usuário precisa rolar antes do header sumir
+    const scrollThreshold = 100; 
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY <= scrollThreshold) {
+            // Se estivermos perto do topo, sempre mostrar o header
+            header.classList.remove('is-hidden');
         } else {
-            body.classList.remove('light-theme');
-            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i>'; // Ícone de lua
-            themeToggleBtn.setAttribute('aria-label', 'Alternar para tema claro');
-        }
-    }
-
-    // Aplica o tema salvo ao carregar a página
-    if (currentTheme) {
-        applyTheme(currentTheme);
-    } else {
-        // Se não houver tema salvo, verifica a preferência do sistema
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            applyTheme('dark'); // Padrão se o sistema preferir escuro
-        } else {
-            applyTheme('light'); // Padrão se o sistema preferir claro ou nenhum
-        }
-    }
-
-    // Event Listener para o botão de alternância
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            if (body.classList.contains('light-theme')) {
-                applyTheme('dark');
-                localStorage.setItem('theme', 'dark');
+            if (currentScrollY > lastScrollY) {
+                // Rolando para BAIXO: esconder o header
+                header.classList.add('is-hidden');
             } else {
-                applyTheme('light');
-                localStorage.setItem('theme', 'light');
+                // Rolando para CIMA: mostrar o header
+                header.classList.remove('is-hidden');
             }
-        });
-    }
+        }
+
+        // Atualiza a última posição do scroll
+        lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+    });
+
 });
