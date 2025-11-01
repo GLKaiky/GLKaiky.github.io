@@ -347,8 +347,8 @@ img {
 /* Media query para telas menores (para ajustar o tamanho do gatinho) */
 @media (max-width: 768px) {
     .walking-cat {
-        width: 48px; /* Menor em telas menores */
-        height: 48px;
+        width: 160px; /* Menor em telas menores */
+        height: 160px;
         /* A animação de move-across-screen usará os novos width/height automaticamente */
     }
 }
