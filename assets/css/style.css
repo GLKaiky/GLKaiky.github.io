@@ -67,10 +67,6 @@ img {
 }
 
 /* =================================================================== */
-/* 2. NAVBAR E HEADER (Seu código, sem alterações)
-/* =================================================================== */
-
-/* =================================================================== */
 /* 2. NAVBAR E HEADER (Refatorado e Limpo)
 /* =================================================================== */
 
@@ -184,55 +180,6 @@ img {
 }
 
 /* =================================================================== */
-/* 6. RESPONSIVIDADE (Ajustes do menu mobile)
-/* =================================================================== */
-
-@media (max-width: 768px) {
-    .hamburger {
-        display: block;
-    }
-    .hamburger.active .bar:nth-child(2) { opacity: 0; }
-    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-    
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 0;
-        flex-direction: column;
-        justify-content: center;
-        width: 100%;
-        height: 100vh;
-        text-align: center;
-        transition: left 0.4s ease;
-        background-color: var(--dropdown-bg);
-        backdrop-filter: blur(15px);
-        -webkit-backdrop-filter: blur(15px);
-        gap: 0; /* Resetar o gap no mobile */
-    }
-    .nav-menu.active { 
-        left: 0; 
-    }
-    .nav-item {
-         margin: 2rem 0; /* Espaçamento vertical no menu mobile */
-    }
-    .nav-link {
-        font-size: 1.8rem;
-    }
-    body.nav-open { 
-        overflow: hidden; 
-    }
-
-    /* Garantir que o botão de tema também tenha um bom tamanho no mobile */
-    .theme-toggle-button {
-        font-size: 1.8rem;
-        /* Centraliza o botão no menu mobile já que não é mais um link */
-        justify-content: center; 
-        width: 100%;
-    }
-}
-
-/* =================================================================== */
 /* 3. NOVA SEÇÃO HERO (Limpa e Moderna)
 /* =================================================================== */
 
@@ -259,13 +206,6 @@ img {
     font-weight: 400;
     color: var(--accent-color); /* Destaque com cor */
 }
-
-/* =================================================================== */
-/* 3. NOVA SEÇÃO HERO (Limpa e Moderna)
-/* ... (seu CSS existente para .hero, .hero-content, etc. fica aqui) ... */
-/* =================================================================== */
-
-/* ADICIONE ESTAS NOVAS REGRAS ABAIXO */
 
 .hero-links {
     display: flex; /* Alinha os ícones horizontalmente */
@@ -295,11 +235,6 @@ img {
 .hero-links a:hover img {
     opacity: 1; /* Opacidade total no hover */
 }
-
-
-/* =================================================================== */
-/* 3. NOVA SEÇÃO HERO (Continuação - Gatinho Andando)
-/* =================================================================== */
 
 /* =================================================================== */
 /* 3. NOVA SEÇÃO HERO (Continuação - Gatinho Andando COM GIF)
@@ -454,6 +389,154 @@ img {
 }
 
 
+/* --- Estilos do Modal --- */
+
+/* O fundo escuro que cobre a tela */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    
+    /* Centraliza o conteúdo (o modal) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Esconde o modal por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    
+    z-index: 1000; /* Garante que fique acima de tudo */
+    padding: 1rem;
+}
+
+/* Classe que o JS vai adicionar para mostrar o modal */
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* A caixa do modal */
+.modal {
+    background-color: #2a2a2a; /* Cor de fundo escura, ajuste como preferir */
+    color: #f0f0f0;
+    border-radius: 12px;
+    padding: 2rem;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh; /* Altura máxima */
+    overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
+    
+    /* Efeito de "zoom" ao aparecer */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1);
+}
+
+/* Botão de fechar (o 'X') */
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #fff;
+}
+
+/* Imagem principal do modal */
+.modal-image {
+    width: 100%;
+    height: 300px; /* Altura fixa para a imagem */
+    object-fit: cover; /* Garante que a imagem cubra a área */
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.modal-subtitle {
+    font-size: 1rem;
+    color: #ccc;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-description {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Stack de Tecnologias */
+.modal-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stack-tag {
+    background-color: #444;
+    color: #eee;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Botões de link */
+.modal-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-link {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #5a4fcf; /* Cor de destaque, ajuste como preferir */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+.btn-link:hover {
+    background-color: #4a3fc3;
+}
+
+.btn-link .fa-github {
+    margin-left: 0.5rem;
+}
+
+/* Torna os cards clicáveis */
+.bento-card.modal-trigger {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento-card.modal-trigger:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 /* =================================================================== */
 /* 5. BOTÃO LINKEDIN (Seu código, sem alterações)
 /* =================================================================== */
@@ -531,4 +614,72 @@ img {
     .content-wrapper {
         padding: 2rem 1rem;
     }
+}
+
+
+/* =================================================================== */
+/* 7. NOVOS ESTILOS DO MODAL (Adicionados)
+/* =================================================================== */
+
+/* Estilo para links dentro da descrição do modal */
+.modal-description a,
+.modal-description a:visited {
+    color: #9d94ff; /* Cor de destaque (sinta-se à vontade para mudar) */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.modal-description a:hover {
+    text-decoration: underline;
+}
+
+/* Novo Bloco de Informações do Projeto */
+.modal-info-section {
+    background-color: #333; /* Cor de fundo (um pouco mais clara que o modal) */
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem; /* Espaço antes da descrição principal */
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem; /* Espaço entre "Tipo" e "Colaboradores" */
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.info-item strong {
+    color: #ccc;
+    margin-right: 0.5rem;
+    flex-shrink: 0; /* Impede que o "strong" encolha */
+}
+
+.info-item span {
+    color: #fff;
+}
+
+/* Lista de Colaboradores (Tags) */
+#modal-collaborators-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#modal-collaborators-list a {
+    display: inline-block;
+    background-color: #4a3fc3; /* Cor dos links */
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px; /* Formato de "tag" */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+
+#modal-collaborators-list a:hover {
+    background-color: #5a4fcf; /* Cor mais clara no hover */
 }

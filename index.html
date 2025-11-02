@@ -5,20 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Kaiky França</title>
-    <link rel="stylesheet" href="assets/css/style.css" class="css"> 
+    <link rel="stylesheet" href="assets/css/style.css" class="css">
     <link rel="icon" href="assets/img/coding.png" class="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@700;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header class="header">
         <nav class="navbar">
             <a href="index.html" class="nav-logo">Kaiky França</a>
-            
+
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="#projetos" class="nav-link">Projetos</a>
@@ -27,10 +29,11 @@
                     <a href="blog.html" class="nav-link">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer" class="nav-link">Contato</a>
+                    <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer"
+                        class="nav-link">Contato</a>
                 </li>
             </ul>
-            
+
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -39,69 +42,102 @@
         </nav>
     </header>
 
-<section class="hero">
-    <div class="hero-content">
-        <h1>Kaiky França dos Reis Silva</h1>
-        <p class="subtitle">Desenvolvedor Back-End</p>
-        
-        <br>
-        <div class="hero-links">
-            <a href="mailto:seu-email@exemplo.com" target="_blank" rel="noopener noreferrer" aria-label="Enviar email">
-                <img src="assets/img/mail_icon.png" alt="Ícone de Email">
-            </a>
-            <a href="https://github.com/GLKaiky" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil no GitHub">
-                <img src="assets/img/github_icon.png" alt="Ícone do GitHub">
-            </a>
-            <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer" aria-label="Ver perfil no LinkedIn">
-                <img src="assets/img/linkedin_icon.png" alt="Ícone do LinkedIn">
-            </a>
-        </div>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Kaiky França dos Reis</h1>
+            <p class="subtitle">Desenvolvedor Back-End</p>
+
+            <br>
+            <div class="hero-links">
+                <a href="mailto:seu-email@exemplo.com" target="_blank" rel="noopener noreferrer"
+                    aria-label="Enviar email">
+                    <img src="assets/img/mail_icon.png" alt="Ícone de Email">
+                </a>
+                <a href="https://github.com/GLKaiky" target="_blank" rel="noopener noreferrer"
+                    aria-label="Ver perfil no GitHub">
+                    <img src="assets/img/github_icon.png" alt="Ícone do GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/glkaiky" target="_blank" rel="noopener noreferrer"
+                    aria-label="Ver perfil no LinkedIn">
+                    <img src="assets/img/linkedin_icon.png" alt="Ícone do LinkedIn">
+                </a>
+            </div>
         </div>
 
         <div class="walking-cat" aria-hidden="true"></div>
-</section>
+    </section>
 
     <main class="content-wrapper" id="projetos">
-        
+
         <section class="bento-grid">
-            
+
             <div class="bento-card card-sobre span-col-2 span-row-2">
                 <h2>Olá! Bem-vindo(a).</h2>
-                <p>Desenvolvedor com foco em Back-End, dedicado à criação de soluções robustas e eficientes. Meu foco está em criar soluções criativas e funcionais. Amo desafios e estou sempre em busca de aprender mais.</p>
+                <p>Desenvolvedor com foco em Back-End, dedicado à criação de soluções robustas e eficientes. Meu foco
+                    está em criar soluções criativas e funcionais. Amo desafios e estou sempre em busca de aprender
+                    mais.</p>
                 <p>Aqui você encontra projetos únicos. Críticas, sugestões e ideias são muito bem-vindas!</p>
             </div>
 
-            <a href="https://github.com/GLKaiky/DIdeas-" target="_blank" rel="noopener noreferrer" class="bento-card" id="projeto-dideas">
+            <div class="bento-card modal-trigger" id="projeto-dideas"
+                data-github-link="https://github.com/GLKaiky/DIdeas-"
+                data-stack="Java, Spark, BackEnd, Web, Azure, Banco de Dados"
+                data-long-desc="D&deas foi o meu primeiro projeto de backend proposto pela faculdade, se tornou rapidamente um projeto de muito aprendizado e abertura para novas possibilidades, ja que nele, encontrei minha paixão por programação backend, a intenção em si do projeto é ser uma plataforma de auxilio à jogadores de RPG em mapear seus personagens, estatisticas e utlizar uma IA criada usando RandomForest para recomendar habilidades ao personagem de acordo com as características dele"
+                data-project-type="Solo"
+                data-collaborators="">
+
                 <img src="assets/img/middleEarth.jpg" alt="Thumbnail do projeto D&deas" class="card-image">
                 <div class="card-content">
                     <h2>D&deas</h2>
-                    <p>Plataforma para jogadores de RPG criarem e compartilharem personagens de D&D, com IA para recomendação de artefatos.</p>
+                    <p>Plataforma para jogadores de RPG criarem e compartilharem personagens de D&D, com IA para
+                        recomendação de artefatos.</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://github.com/GLKaiky/Kirian.h" target="_blank" rel="noopener noreferrer" class="bento-card" id="projeto-kirian">
+            <div class="bento-card modal-trigger" id="projeto-kirian"
+                data-github-link="https://github.com/GLKaiky/Kirian.h" data-stack="C, Make, Estrutura de Dados, TUI"
+                data-long-desc="Kirian.h é uma biblioteca desenvolvida em C puro para a disciplina de Estrutura de Dados Avançados. O foco era criar um sistema de gerenciamento de biblioteca que utiliza arquivos sequenciais otimizados, indexação e uma interface TUI (Text User Interface) para manipulação dos dados."
+                data-project-type="Solo"
+                data-collaborators="">
+
                 <img src="assets/img/cat.jpg" alt="Thumbnail do projeto Kirian.h" class="card-image">
                 <div class="card-content">
                     <h2>Kirian.h</h2>
-                    <p>Biblioteca em C para aplicar conceitos avançados de Estruturas de Dados e arquivos sequenciais otimizados.</p>
+                    <p>Biblioteca em C para aplicar conceitos avançados de Estruturas de Dados e arquivos sequenciais
+                        otimizados.</p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://github.com/TI4-GRUPO-10/The-Apostate" target="_blank" rel="noopener noreferrer" class="bento-card span-col-2" id="projeto-theapostate">
+            <div class="bento-card modal-trigger span-col-2" id="projeto-theapostate"
+                data-github-link="https://github.com/TI4-GRUPO-10/The-Apostate"
+                data-stack="C#, Unity, TopDown, Design de Game, Trilha sonora e produção musical"
+                data-long-desc="The Apostate foi o meu primeiro jogo desenvolvido utilizando a engine Unity, foi uma produção em grupo quando fiquei na resposabilidade de produzir o design de fase do game e também na produção interina dos efeitos e trilhas sonoras do game utilizando vários instrumentos diferentes"
+                data-project-type="Em Grupo"
+                data-collaborators="Gabriel:https://github.com/RazennGabe, Arthur Clemente:https://github.com/sorarthur, Lucas Hauck:https://github.com/o-hauck, Iago Fereguetti:https://github.com/Iago-Fereguetti18,
+                Luan Carrieiros:https://github.com/LuanCarrieiros, Felipe Vidias:https://github.com/felipevidias">
+
                 <img src="assets/img/TheApostate.png" alt="Thumbnail do projeto The Apostate" class="card-image">
                 <div class="card-content">
                     <h2>The Apostate</h2>
-                    <p>Survival horror psicológico com elementos de roguelite. Sobreviva a ciclos de loucura em uma igreja amaldiçoada.</p>
+                    <p>Survival horror psicológico com elementos de roguelite. Sobreviva a ciclos de loucura em uma
+                        igreja amaldiçoada.</p>
                 </div>
-            </a>
-            
-            <a href="https://github.com/GLKaiky/LDDM" target="_blank" rel="noopener noreferrer" class="bento-card" id="projeto-worldchat">
-                <img src="assets/img/logo-jumping.gif" alt="Thumbnail do projeto World Chat" class="card-image"> <div class="card-content">
-                    <h2>World Chat</h2>
-                    <p>Projeto em Flutter que permite a extração de textos de imagens e oferece tradução automática com IA.</p>
-                </div>
-            </a>
+            </div>
 
+            <div class="bento-card modal-trigger" id="projeto-worldchat"
+                data-github-link="https://github.com/GLKaiky/LDDM"
+                data-stack="Flutter, Google KIT, Gemini, AI, Mobile Design"
+                data-long-desc="O World Chat é um tradutor universal em Flutter. O app resolve problemas de tradução em tempo real ao permitir que o usuário extraia texto de imagens (usando OCR) e traduza áudio. A integração com IA garante traduções contextuais e de alta precisão."
+                data-project-type="Em Grupo"
+                data-collaborators="Giuseppe:https://github.com/giusfds, Samuel Horta:https://github.com/SamuelHortadeFaria, Suzane Lemos:https://github.com/SuzaneLemos">
+                
+                <img src="assets/img/logo-jumping.gif" alt="Thumbnail do projeto World Chat" class="card-image">
+                <div class="card-content">
+                    <h2>World Chat</h2>
+                    <p>Projeto em Flutter que permite a extração de textos de imagens e oferece tradução automática com
+                        IA.</p>
+                </div>
+            </div>
             <a href="blog.html" class="bento-card card-link-blog">
                 <div class="card-content">
                     <h2>Blog</h2>
@@ -110,8 +146,46 @@
                 </div>
             </a>
 
-        </section> </main>
+        </section>
+    </main>
 
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal" id="project-modal">
+
+            <button class="modal-close" id="modal-close-btn" aria-label="Fechar modal">&times;</button>
+
+            <img src="" alt="Thumbnail do projeto" class="modal-image" id="modal-img">
+
+            <div class="modal-content">
+                <h2 id="modal-title"></h2>
+                <p class="modal-subtitle" id="modal-subtitle"></p>
+
+                <div class="modal-stack" id="modal-stack">
+                    </div>
+
+                <div class="modal-info-section">
+                    <div class="info-item">
+                        <strong>Tipo de Projeto:</strong>
+                        <span id="modal-project-type"></span>
+                    </div>
+                    
+                    <div class="info-item" id="modal-collaborators-container" style="display: none;">
+                        <strong>Colaboradores:</strong>
+                        <div id="modal-collaborators-list">
+                            </div>
+                    </div>
+                </div>
+                <p class="modal-description" id="modal-details"></p>
+
+                <div class="modal-links">
+                    <a href="#" id="modal-github-link" class="btn-link" target="_blank" rel="noopener noreferrer">
+                        Ver no GitHub <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
