@@ -343,6 +343,11 @@ img {
 .span-col-2 {
     grid-column: span 2;
 }
+
+.span-col-3 {
+    grid-column: span 3;
+}
+
 .span-row-2 {
     grid-row: span 2;
 }
