@@ -250,7 +250,7 @@ img {
     left: -100px; /* Esconde ele um pouco para fora da tela, à esquerda */
     width: 250px; /* Largura do seu GIF */
     height: 250px; /* Altura do seu GIF */
-    background-image: url('/assets/img/cat_Walk-ezgif.com-added-text.gif'); /* Seu arquivo GIF */
+    background-image: url('/assets/img/cat_Walk_D.gif'); /* Seu arquivo GIF */
     background-repeat: no-repeat;
     background-size: cover; /* Garante que o GIF preencha o espaço */
     animation: 
