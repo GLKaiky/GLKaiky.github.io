@@ -244,6 +244,38 @@ img {
 /* 3. NOVA SEÇÃO HERO (Continuação - Gatinho Andando COM GIF)
 /* =================================================================== */
 
+.coin-pop {
+    position: absolute; /* Essencial para posicionar a moeda na tela */
+    width: 200px;        /* Tamanho da moeda */
+    height: 180px;
+    z-index: 10;        /* Garante que a moeda apareça sobre o gato */
+    
+    /* Impede que a moeda bloqueie cliques em outros elementos */
+    pointer-events: none; 
+    
+    /* Aplica a animação que vamos definir abaixo */
+    animation: coin-pop-animation 0.8s ease-out forwards;
+}
+
+/* Keyframes que definem a animação da moeda */
+@keyframes coin-pop-animation {
+    0% {
+        /* Começa na posição calculada, pequena e opaca */
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+    25% {
+        /* Sobe 80 pixels e atinge o tamanho máximo */
+        transform: translateY(-80px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        /* Continua subindo mais um pouco enquanto encolhe e desaparece */
+        transform: translateY(-120px) scale(0.5);
+        opacity: 0;
+    }
+}
+
 .walking-cat {
     position: absolute; /* Posicionamento livre dentro do hero */
     bottom: 0; /* Começa na parte de baixo */
@@ -258,6 +290,8 @@ img {
     z-index: 5; /* Para ficar sobre o hero-content, mas abaixo do header */
     transform: scaleX(1); /* Padrão, gatinho olhando para a direita */
 }
+
+
 
 /* Keyframes para o movimento do gatinho na tela (permanece o mesmo) */
 @keyframes move-across-screen {

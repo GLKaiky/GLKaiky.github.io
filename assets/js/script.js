@@ -199,4 +199,48 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+// Seleciona o elemento do gato que está andando
+    const walkingCat = document.querySelector('.walking-cat');
+
+    // Verifica se o elemento do gato existe na página
+    if (walkingCat) {
+        
+        // Adiciona um "ouvinte" de evento de clique ao gato
+        walkingCat.addEventListener('click', (event) => {
+            
+            // 1. Pega a posição e tamanho atual do gato na tela
+            const catRect = walkingCat.getBoundingClientRect();
+            
+            // 2. Cria um novo elemento de imagem para a moeda
+            const coin = document.createElement('img');
+            
+            // !!! IMPORTANTE: Coloque o caminho correto para o seu GIF aqui !!!
+            coin.src = 'assets/img/8bit_coin.gif'; // Substitua pelo seu caminho
+            
+            // Adiciona a classe CSS que criamos para o estilo e animação
+            coin.classList.add('coin-pop');
+            
+            // 3. Calcula a posição exata para a moeda aparecer
+            // Posição vertical: topo do gato + scroll da página
+            const topPosition = catRect.top + window.scrollY;
+            
+            // Posição horizontal: centro do gato (considerando a largura da moeda de 50px)
+            const leftPosition = catRect.left + (catRect.width / 2) - 25; 
+            
+            // Aplica as posições calculadas no estilo da moeda
+            coin.style.top = `${topPosition}px`;
+            coin.style.left = `${leftPosition}px`;
+            
+            // 4. Adiciona a moeda ao corpo do documento para que ela apareça
+            document.body.appendChild(coin);
+            
+            // 5. Remove o elemento da moeda após a animação terminar (800ms)
+            // Isso evita que o HTML fique cheio de imagens de moedas invisíveis
+            setTimeout(() => {
+                coin.remove();
+            }, 800);
+
+        });
+    }
+
 }); // Fim do DOMContentLoaded
